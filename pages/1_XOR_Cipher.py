@@ -25,7 +25,7 @@ def xor_decrypt(ciphertext, key):
     """Decrypts ciphertext using XOR cipher with the given key."""
     return xor_encrypt(ciphertext, key) # XOR decryption is the same as encryption 
 
-if st.button("Submit"):
+if st.button("Submit"): 
     if not key:
         st.error("Invalid key")
     else:

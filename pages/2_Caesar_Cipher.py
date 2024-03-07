@@ -37,11 +37,6 @@ text = st.text_input("Text")
 shift_keys_str = st.text_input("Shift keys (space-separated)")
 shift_keys = [int(key) for key in shift_keys_str.split()]
 
-# Example usage
-#text = input()
-#shift_keys = input().split()
-#shift_keys = [int(key) for key in shift_keys]
-
 if st.button("Submit"):
     if not shift_keys:
         st.error("Please enter shift keys.")
