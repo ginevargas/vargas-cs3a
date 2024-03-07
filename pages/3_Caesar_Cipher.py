@@ -29,7 +29,7 @@ def encrypt_decrypt(text, shift_keys, ifdecrypt):
             result += chr(new_ascii)
         else:
             result += char
-        st.write(i, char, shift_key, result[i])
+        st.write(str(i) + " ", char, str(shift_key), result[i])
     return result
 
 # Streamlit UI setup
@@ -40,25 +40,23 @@ shift_keys = [int(key) for key in shift_keys_str.split()]
 # Example usage
 #text = input()
 #shift_keys = input().split()
-
-shift_keys = [int(key) for key in shift_keys]
-
-def OutputPrint(text, shift_keys, enc, dec):
-    st.write("Text:", text)
-    st.write("Shift keys:", *shift_keys)
-    st.write("Cipher:", enc)
-    st.write("Decrypted text:", dec)
-
+#shift_keys = [int(key) for key in shift_keys]
 
 if st.button("Submit"):
     if not shift_keys:
         st.error("Please enter shift keys.")
     else:
-        enc = encrypt_decrypt(text, shift_keys, False)
+        encrypted_text = encrypt_decrypt(text, shift_keys, False)
+        decrypted_text = encrypt_decrypt(encrypted_text, shift_keys, True)
+
         st.write("----------")
-        dec = encrypt_decrypt(enc, shift_keys, True)
-        st.write("----------")
-    OutputPrint(text, shift_keys, enc, dec)
+        st.write("Text:", text)
+        st.write("Shift keys:", shift_keys_str)
+        st.write("Cipher:", encrypted_text)
+        st.write("Decrypted text:", decrypted_text)
+
+st.balloons()
+st.snow()
 
 
     
