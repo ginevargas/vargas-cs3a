@@ -68,5 +68,3 @@ if st.button('Calculate'):
         p = int(p_input)
         primitive_number = int(primitive_number_input)
         print_primitive_roots(p, primitive_number)
-
-st.toast()
