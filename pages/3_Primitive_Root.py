@@ -61,7 +61,6 @@ def print_primitive_roots(p, primitive_number):
         st.write(f"{primitive_number} is NOT primitive root: False {primitive_roots}")
 
 # Streamlit UI
-st.title("Primitive Roots Calculator")
 p_input = get_primitive_input("Enter a prime number:")
 primitive_number_input = get_primitive_input("Enter a primitive number:")
 if st.button('Calculate'):
@@ -69,3 +68,5 @@ if st.button('Calculate'):
         p = int(p_input)
         primitive_number = int(primitive_number_input)
         print_primitive_roots(p, primitive_number)
+
+st.toast()
