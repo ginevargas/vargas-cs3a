@@ -37,14 +37,14 @@ def is_primitive_check(g, p):
         return True, primitive_roots
     else:
         return False, primitive_roots
+    
 
-# Use st.text_input for user input
-q = st.text_input("Enter a prime number (q):", type=int)
-g = st.text_input("Enter a primitive root (g):", type=int)
+q = st.text_input("Enter a prime number (q):")
+g = st.text_input("Enter a primitive root (g):")
 
-# Use st.button for the submit button
+
 if st.button("Submit"):
-    if q is not None and g is not None:
+    if q and g:  # Check if both q and g are not empty
         q = int(q)
         g = int(g)
 
