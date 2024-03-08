@@ -5,7 +5,7 @@ st.header("Primitive Root")
 def is_prime(n):
     if n <= 1:
         return False
-    if n <= 3: 
+    if n <= 3:
         return True
     if n % 2 == 0 or n % 3 == 0:
         return False
@@ -15,8 +15,8 @@ def is_prime(n):
             return False
         i += 6
     return True
-    
-def is_primitive_check(g, p): 
+
+def is_primitive_check(g, p):
     primitive_roots = []
     for i in range(1, p):
         temp = set()
@@ -31,23 +31,30 @@ def is_primitive_check(g, p):
                 break
         if len(temp) == p - 1:
             primitive_roots.append(i)
-            output += f" ==> {i} is primitive root of {p}, "
+            output += f" ==> {i} is a primitive root of {p}, "
         print(output)
     if g in primitive_roots:
         return True, primitive_roots
     else:
         return False, primitive_roots
-            
-    
-q = int(input())
-g = int(input())
 
-if is_prime(q):
-    is_primitive_root, primitive_roots = is_primitive_check(g, q)
-    if is_primitive_root:
-        st.write(f"{g} is primitive root: {is_primitive_root} {primitive_roots}")
+# Use st.text_input for user input
+q = st.text_input("Enter a prime number (q):", type=int)
+g = st.text_input("Enter a primitive root (g):", type=int)
+
+# Use st.button for the submit button
+if st.button("Submit"):
+    if q is not None and g is not None:
+        q = int(q)
+        g = int(g)
+
+        if is_prime(q):
+            is_primitive_root, primitive_roots = is_primitive_check(g, q)
+            if is_primitive_root:
+                st.write(f"{g} is a primitive root: {is_primitive_root} {primitive_roots}")
+            else:
+                st.write(f"{g} is NOT a primitive root of {q} - List of Primitive roots: {primitive_roots}")
+        else:
+            st.write(f"{q} is not a prime number!!")
     else:
-        st.write(f"{g} is NOT primitive root of {q} - List of Primitive roots: {primitive_roots}")
-else:
-    st.write(f"{q} is not a prime number!!")
-
+        st.write("Please enter both a prime number and a primitive root.")
