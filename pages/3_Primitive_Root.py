@@ -2,11 +2,11 @@ import streamlit as st
 
 st.header("Primitive Root Calculator")
 
-def is_prime(num):
-    if num < 2:
+def prime(n):
+    if n < 2:
         return False
-    for i in range(2, int(num ** 0.5) + 1):
-        if num % i == 0:
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
             return False
     return True
 
@@ -72,8 +72,9 @@ def print_primitive(p, prim_num):
         st.write(f"{prim_num} is NOT primitive root of {p} - List of Primitive roots: {primitive_root}")
 
 def main():
-    p = st.number_input("Enter a prime number:", value=2, step=1)
-    prim_num = st.number_input("Enter a primitive root:", value=1, step=1)
+    st.title("Primitive Roots Calculator")
+    p = st.number_input("Enter a prime number (p)", value=2, step=1)
+    prim_num = st.number_input("Enter a primitive number (prim_num)", value=1, step=1)
     if st.button("Calculate"):
         print_primitive(int(p), int(prim_num))
 
