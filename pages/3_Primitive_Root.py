@@ -38,10 +38,6 @@ def print_primitive_roots(p, primitive_number):
     if not is_prime(p):
         st.write(f"{p} is not a prime number!!")
         return  
-  
-    if not 1 <= primitive_number < p:
-        st.error("Please enter a number greater than 1.")
-        return
 
     print_results = []
     for g in range(1, p):
