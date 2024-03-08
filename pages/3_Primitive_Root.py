@@ -72,55 +72,10 @@ def print_primitive(p, prim_num):
         st.write(f"{prim_num} is NOT primitive root of {p} - List of Primitive roots: {primitive_root}")
 
 def main():
-    p = st.number_input("Enter a prime number (p)", value=2, step=1)
-    prim_num = st.number_input("Enter a primitive number (prim_num)", value=1, step=1)
+    p = st.number_input("Enter a prime number:"), #value=2, step=1)
+    prim_num = st.number_input("Enter a primitive root:") #, value=1, step=1)
     if st.button("Calculate"):
         print_primitive(int(p), int(prim_num))
 
 if __name__ == "__main__":
     main()
-
-
-
-def is_primitive_check(g, p):
-    primitive_roots = []
-    for i in range(1, p):
-        temp = set()
-        output = ''
-        for j in range(1, p):
-            residue = pow(i, j, p)
-            output += f"{i}^{j} mod {p} = {residue}"
-            if j < p - 1:
-                output += ", "
-            temp.add(residue)
-            if residue == 1:
-                break
-        if len(temp) == p - 1:
-            primitive_roots.append(i)
-            output += f" ==> {i} is a primitive root of {p}, "
-        print(output)
-    if g in primitive_roots:
-        return True, primitive_roots
-    else:
-        return False, primitive_roots
-    
-
-q = st.text_input("Enter a prime number (q):")
-g = st.text_input("Enter a primitive root (g):")
-
-
-if st.button("Submit"):
-    if q and g:  # Check if both q and g are not empty
-        q = int(q)
-        g = int(g)
-
-        if is_prime(q):
-            is_primitive_root, primitive_roots = is_primitive_check(g, q)
-            if is_primitive_root:
-                st.write(f"{g} is a primitive root: {is_primitive_root} {primitive_roots}")
-            else:
-                st.write(f"{g} is NOT a primitive root of {q} - List of Primitive roots: {primitive_roots}")
-        else:
-            st.write(f"{q} is not a prime number!!")
-    else:
-        st.write("Please enter both a prime number and a primitive root.")
