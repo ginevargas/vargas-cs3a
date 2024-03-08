@@ -1,5 +1,7 @@
 import streamlit as st
 
+st.header("Block Cipher - XOR Encryption")
+
 def pad(data, block_size):
     padding_length = block_size - len(data) % block_size
     padding = bytes([padding_length] * padding_length)
@@ -42,7 +44,6 @@ def xor_decrypt(ciphertext, key, block_size):
     return unpadded_decrypted_data
 
 def main():
-    st.title("XOR Encryption and Decryption")
     plaintext = st.text_input("Enter plaintext:")
     key = st.text_input("Enter key:")
     block_size = st.number_input("Enter block size:", value=16, step=1)
