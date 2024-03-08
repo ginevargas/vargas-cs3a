@@ -36,7 +36,7 @@ def run():
    - XOR Cipher
    - Caesar Cipher
    - Primitive Root
-   - Block Cipher"
+   - Block Cipher
     """
     )
 
